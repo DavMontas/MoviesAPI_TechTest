@@ -8,5 +8,8 @@ namespace MoviesAPI.Core.Application.Dto
 {
     public class MovieDto
     {
+        public string Title { get; set; }
+        public string Description { get; set; }
+        
     }
 }

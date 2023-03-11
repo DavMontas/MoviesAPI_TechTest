@@ -84,7 +84,7 @@ namespace ActorsAPI.Controllers
             Summary = "Add Actor",
             Description = "add  new actor record"
             )]
-        public virtual async Task<IActionResult> Add(ActorDto dto)
+        public virtual async Task<IActionResult> Add([FromBody] ActorDto dto)
         {
             try
             {
@@ -119,7 +119,7 @@ namespace ActorsAPI.Controllers
             Summary = "Update ",
             Description = "update an actor"
             )]
-        public virtual async Task<IActionResult> Update(ActorDto dto, int id)
+        public virtual async Task<IActionResult> Update([FromBody] ActorDto dto, int id)
         {
             try
             {
