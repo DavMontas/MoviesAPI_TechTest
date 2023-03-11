@@ -1,16 +1,17 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using MoviesAPI.Core.Application.Dto;
+
 using MoviesAPI.Core.Application.Interfaces.Services;
+using MoviesAPI.Core.Application.Dto;
 
 namespace ActorsAPI.Controllers
 {
     [ApiController]
     [Route("api/v{version:apiVersion}/[controller]")]
-    public class ActorController : ControllerBase
+    public class ActorsController : ControllerBase
     {
         private readonly IActorService _svc;
-        public ActorController(IActorService svc)
+        public ActorsController(IActorService svc)
         {
             _svc = svc;
         }

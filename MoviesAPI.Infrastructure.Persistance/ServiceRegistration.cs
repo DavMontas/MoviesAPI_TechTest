@@ -22,7 +22,6 @@ namespace MoviesAPI.Infrastructure.Persistance
             svc.AddTransient<IActorRepository, ActorRepository>();
             svc.AddTransient<IMovieRepository, MovieRepository>();
 
-
             #endregion
         }
     }

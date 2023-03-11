@@ -14,6 +14,7 @@ namespace MoviesAPI.Core.Application
             #region services
             service.AddTransient<IActorService, ActorService>();
             service.AddTransient<IMovieService, MovieService>();
+
             #endregion
         }
     }

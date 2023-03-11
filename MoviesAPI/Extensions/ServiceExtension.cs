@@ -32,23 +32,7 @@ namespace MoviesAPI.Extensions
                     BearerFormat = "JWT",
                     Description = "Input your bearer token in this format - Bearer {your token goes in here}"
                 });
-                opt.AddSecurityRequirement(new OpenApiSecurityRequirement
-                {
-                    {
-                        new OpenApiSecurityScheme
-                        {
-                            Reference = new OpenApiReference
-                            {
-                                Type = ReferenceType.SecurityScheme,
-                                Id ="Bearer",
-                            },
-                            Scheme = "Bearer",
-                            Name = "Bearer",
-                            In = ParameterLocation.Header,
 
-                        }, new List<string>()
-                    },
-                });
             });
         }
 
