@@ -2,15 +2,16 @@
 using Microsoft.AspNetCore.Mvc;
 using MoviesAPI.Core.Application.Dto;
 using MoviesAPI.Core.Application.Interfaces.Services;
+using Swashbuckle.AspNetCore.Annotations;
 
-namespace ActorsAPI.Controllers
+namespace MoviesAPI.Controllers
 {
     [ApiController]
     [Route("api/v{version:apiVersion}/[controller]")]
-    public class ActorController : ControllerBase
+    public class MovieController : ControllerBase
     {
-        private readonly IActorService _svc;
-        public ActorController(IActorService svc)
+        private readonly IMovieService _svc;
+        public MovieController(IMovieService svc)
         {
             _svc = svc;
         }
@@ -20,6 +21,10 @@ namespace ActorsAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [SwaggerOperation(
+            Summary = "list of movies",
+            Description = "get all the movie records in the database"
+            )]
         public async Task<IActionResult> GetAll()
         {
             try
@@ -42,6 +47,10 @@ namespace ActorsAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [SwaggerOperation(
+            Summary = "Get Movie",
+            Description = "Get a movie by its id"
+            )]
         public virtual async Task<IActionResult> GetById(int id)
         {
             try
@@ -70,7 +79,11 @@ namespace ActorsAPI.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public virtual async Task<IActionResult> Add(ActorDto dto)
+        [SwaggerOperation(
+            Summary = "Movie",
+            Description = "Add a Movie"
+            )]
+        public virtual async Task<IActionResult> Add(MovieDto dto)
         {
             try
             {
@@ -101,7 +114,11 @@ namespace ActorsAPI.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public virtual async Task<IActionResult> Update(ActorDto dto, int id)
+        [SwaggerOperation(
+            Summary = "Update",
+            Description = "To update a movie"
+            )]
+        public virtual async Task<IActionResult> Update(MovieDto dto, int id)
         {
             try
             {
@@ -135,6 +152,10 @@ namespace ActorsAPI.Controllers
         [HttpDelete("delete/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [SwaggerOperation(
+            Summary = "Delete",
+            Description = "Delete a movie by its id"
+            )]
         public virtual async Task<IActionResult> delete(int id)
         {
             try

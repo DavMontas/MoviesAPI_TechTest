@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 using MoviesAPI.Core.Application.Interfaces.Services;
 using MoviesAPI.Core.Application.Dto;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace ActorsAPI.Controllers
 {
@@ -21,6 +22,10 @@ namespace ActorsAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [SwaggerOperation(
+            Summary = "List of Actors",
+            Description = "Return all the recors on Actors"
+            )]
         public async Task<IActionResult> GetAll()
         {
             try
@@ -43,6 +48,10 @@ namespace ActorsAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [SwaggerOperation(
+            Summary = "Actor",
+            Description = "Get an actor by its id"
+            )]
         public virtual async Task<IActionResult> GetById(int id)
         {
             try
@@ -71,6 +80,10 @@ namespace ActorsAPI.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [SwaggerOperation(
+            Summary = "Add Actor",
+            Description = "add  new actor record"
+            )]
         public virtual async Task<IActionResult> Add(ActorDto dto)
         {
             try
@@ -102,6 +115,10 @@ namespace ActorsAPI.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [SwaggerOperation(
+            Summary = "Update ",
+            Description = "update an actor"
+            )]
         public virtual async Task<IActionResult> Update(ActorDto dto, int id)
         {
             try
@@ -136,6 +153,10 @@ namespace ActorsAPI.Controllers
         [HttpDelete("delete/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [SwaggerOperation(
+            Summary = "Delete",
+            Description = "delete an actor by its id"
+            )]
         public virtual async Task<IActionResult> delete(int id)
         {
             try
